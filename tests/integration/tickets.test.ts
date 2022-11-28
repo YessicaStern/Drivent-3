@@ -239,7 +239,7 @@ describe("POST /tickets", () => {
       await server.post("/tickets").set("Authorization", `Bearer ${token}`).send({ ticketTypeId: ticketType.id });
 
       const afterCount = await prisma.ticket.count();
-
+      
       expect(beforeCount).toEqual(0);
       expect(afterCount).toEqual(1);
     });
